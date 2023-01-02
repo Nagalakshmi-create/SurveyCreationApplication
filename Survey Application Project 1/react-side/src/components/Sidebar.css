@@ -1,0 +1,12 @@
+.sidebar-div {
+    width: 150px;
+    position: realtive;
+    top: 100px;
+    height: 560px;
+    background-color: #96bbf0;
+    color: #fff;
+}
+
+a{
+    color: #fff; 
+}

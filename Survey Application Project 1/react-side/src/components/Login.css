@@ -1,0 +1,62 @@
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    background-color: #C0DEFF;
+    width: 400px;
+    font-weight: bolder;
+    font-family: 'Clicker Script';
+    -webkit-box-shadow: 0 0 30px #67a2f5;
+    box-shadow: 0 0 30px #67a2f5;
+    border-radius: 15%;
+    position: relative;
+    top: 100px;
+    margin-left: 400px;
+}
+.input-box {
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    outline-color:rgb(166, 231, 209);
+    width: 250px;
+}
+.drop-box {
+    padding-right: 65px;
+    font-family: 'Clicker Script';
+    color: #3785f3;
+    font-weight: bolder;
+}
+.btn {
+    border: none;
+    background-color: #71a9f8;
+    width: 250px;
+    align-content: center;
+    padding-right: 55px;
+    padding-left: 55px;
+    color: white;
+}
+.btn-text {
+    height: 10px;
+}
+input::placeholder {
+    font-family: 'Clicker Script';
+    font-weight: bold;
+    font-size: medium;
+}
+.heading {
+    position: relative;
+    bottom: 30px;
+    color: #3785f3;
+}
+#login-div{
+    display: flex;
+    flex-direction: column;
+}
+
+#signup-link{
+    margin-left: 500px;
+    position: relative;
+    top: 120px;
+}

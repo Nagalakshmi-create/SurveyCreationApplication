@@ -1,0 +1,9 @@
+.admin-div {
+    display:flex; flex-direction:row;
+}
+#admin-home{
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}

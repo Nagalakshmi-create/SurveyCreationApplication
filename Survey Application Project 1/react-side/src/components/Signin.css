@@ -1,0 +1,52 @@
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 550px;
+    background-color: #C0DEFF;
+    width: 30%;
+    padding-left: 12px;
+    font-weight: bolder;
+    font-family: 'Clicker Script';
+    -webkit-box-shadow: 0 0 30px rgb(14, 15, 15);
+    box-shadow: 0 0 30px #67a2f5;
+    border-radius: 15%;
+    position: relative;
+    top: 60px;
+    margin: auto;
+    color: #67a2f5  ;
+}
+.sign-input {
+    border-radius: 13px;
+    border: none;
+    padding: 9px;
+    outline-color:rgb(166, 231, 209);
+    padding-right: 32px;
+    padding-left: 32px;
+}
+.drop-down {
+    padding-right: 85px;
+    font-family: 'Clicker Script';
+    color: #3785f3;
+    font-weight: bolder;
+}
+.btn-size {
+    height: 30px;
+    border-radius: 15px;
+}
+#sign-btn {
+    width: 250px;
+    background-color: #67a2f5;
+    height: 40px;
+    color: #ffff;
+}
+#heading {
+    color: #3785f3;
+}
+::placeholder {
+    color: #67a2f5;
+}
+option{
+    color: #67a2f5;
+}   

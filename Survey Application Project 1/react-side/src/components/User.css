@@ -1,0 +1,14 @@
+a {
+    color: black;
+}
+
+#user-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 20px;
+    position: relative;
+    top: 100px;
+}

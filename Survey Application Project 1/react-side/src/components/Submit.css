@@ -1,0 +1,21 @@
+#thank-you {
+    font-size: 120px;
+}
+
+#create-btn{
+    background: #ffffff none repeat scroll 0 0; 
+     border: 1px solid #aa8d56; 
+     color: #3785f3; 
+     outline: medium none; 
+     padding: 15px; 
+     text-decoration: none;
+     width: 80px;
+}
+
+#submit-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
