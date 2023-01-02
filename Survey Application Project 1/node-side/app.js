@@ -1,11 +1,13 @@
 const express = require("express");
 var cors = require("cors");
 const crypto = require("crypto");
-const algorithm = "aes-256-cbc"; 
-const initVector = crypto.randomBytes(16);
-const Securitykey = crypto.randomBytes(32);
-const cipher = crypto.createCipheriv(algorithm, Securitykey, initVector)
-const decipher = crypto.createDecipheriv(algorithm, Securitykey, initVector);
+// const algorithm = "aes-256-cbc"; 
+// const initVector = crypto.randomBytes(16);
+// const Securitykey = crypto.randomBytes(32);
+// const cipher = crypto.createCipheriv(algorithm, Securitykey, initVector)
+// const decipher = crypto.createDecipheriv(algorithm, Securitykey, initVector);
+var key = "abcdefghijklmnopqrstuvwx";
+var encrypt = crypto.createCipheriv('des-ede3', key, "");
 const bodyParser = require("body-parser");
 var { Client } = require("pg");
 const app = express();
@@ -22,16 +24,19 @@ pool.connect();
 app.post("/signin", (req, res) => {
   const user = req.body;
   const password = user.password;
-  let encryptedData = cipher.update(password, "utf-8", "hex");
-  encryptedData += cipher.final("hex");
-  console.log(encryptedData);
+  // let encryptedData = cipher.update(password, "utf-8", "hex");
+  // encryptedData += cipher.final("hex");
+  var encrypt = crypto.createCipheriv('des-ede3', key, "");
+  var theCipher = encrypt.update(password, 'utf8', 'base64');
+  theCipher += encrypt.final('base64');
+  console.log(theCipher);
   let selectQuery = `select count(email) from signup where email='${user.email}'`;
   try {
     pool.query(selectQuery, (err, result) => {
       if (!err) {
         if (result.rows[0].count == 0) {
           let insertQuery = `insert into signup(firstname, lastname, email, password)
-                              values('${user.fname}', '${user.lname}', '${user.email}', '${encryptedData}') `;
+                              values('${user.fname}', '${user.lname}', '${user.email}', '${theCipher}') `;
           pool.query(insertQuery, (err, result1) => {
             if (!err) {
               res.send("Insertion was successful");
@@ -65,9 +70,12 @@ app.post("/login", (req, res) => {
           let passQuery = `Select id,password, role from signup where email = '${email}'`;
           pool.query(passQuery, (err, result1) => {
             let passdb = result1.rows[0].password;
-            let decryptedData = decipher.update(passdb, "hex", "utf-8");
-            decryptedData = decipher.final("utf8");
-            console.log(decryptedData);
+            // let decryptedData = decipher.update(passdb, "hex", "utf-8");
+            // decryptedData += decipher.final("utf8");
+            // console.log(decryptedData);
+            var decrypt = crypto.createDecipheriv('des-ede3', key, "");
+            var s = decrypt.update(passdb, 'base64', 'utf8');
+            var decryptedData = s + decrypt.final('utf8');
             if (decryptedData == password) {
               let insertQuery = `insert into logins(id, email) values('${result1.rows[0].id}','${user.email}')`;
               pool.query(insertQuery, (err, result) => {
